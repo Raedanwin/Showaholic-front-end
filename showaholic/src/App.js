@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 
-import Welcome from './components/Welcome.jsx'
+import Login from './components/Login.jsx'
 
 export default class App extends Component {
   render() {
     return(
       <div>
-        {/* <Welcome/> */}
+        <Login />
       </div>
     )
   }
