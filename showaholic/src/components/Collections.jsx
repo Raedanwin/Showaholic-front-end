@@ -45,9 +45,8 @@ export default class Collections extends Component {
                             <h4>{watchlist.authour}</h4>
                         </div>
                         </a>
-                    )
-                })
-                }
+                    )}
+                )}
             </div>
         )
     }
