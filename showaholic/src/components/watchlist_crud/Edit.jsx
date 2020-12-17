@@ -25,12 +25,11 @@ export default class Edit extends Component {
     getWatchList = async () => {
         try {
             const id = this.props.match.params.id
-            console.log(id)
-            //go get the watchlist
             const response = await axios.get(baseURL + id)
-            console.log(response.data.data)
-            //set it to allwatchlist state
-            this.setState({ title: response.data.data.title,authour:response.data.data.authour })
+            this.setState({
+                title: response.data.data.title,
+                authour:response.data.data.authour 
+            })
         } catch (err) {
             console.log(err)
         }
@@ -44,14 +43,15 @@ export default class Edit extends Component {
 
     handleUpdate = async (event) => {
         event.preventDefault()
+        const id = this.props.match.params.id
         const packageUpdate = {
             title: this.state.title,
             authour: this.state.authour
         }
-        await axios.put(baseURL+`${this.props.match.params.id}`, packageUpdate).then(
-            //do a redirect back to the main page here
-            this.setState({ redirectBack: true })
-        )
+        await axios.put(baseURL + id, packageUpdate)
+        .then(this.setState({ 
+            redirectBack: true 
+        }))
     }
 
     render() {
