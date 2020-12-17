@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link,Redirect } from 'react-router-dom'
 
 const baseURL = `http://localhost:8000/api/v1/watchlist/`
+const showURL = 'http://localhost:8000/api/v1/show/'
+
 
 export default class Show extends Component {
     constructor(props) {

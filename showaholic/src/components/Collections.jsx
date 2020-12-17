@@ -16,23 +16,22 @@ export default class Collections extends Component {
             allWatchlist: []
         }
     }
+
     componentDidMount() {
         this.getAllwatchlists()
     }
+
     getAllwatchlists = async () => {
         try {
-            //go get the watchlist
             const response = await axios.get(baseURL)
-            console.log(response.data.data)
-            //set it to allwatchlist state
-            this.setState({ allWatchlist: response.data.data })
+            this.setState({
+                allWatchlist: response.data.data
+            })
         } catch (err) {
             console.log(err)
         }
 
     }
-
-
 
     render() {
         return (

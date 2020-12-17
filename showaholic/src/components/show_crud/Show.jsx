@@ -49,7 +49,7 @@ export default class Show extends Component {
     render() {
         return(
             <div>
-                
+                <h1>{this.state.shows.title}</h1>
             </div>
         )
     }
