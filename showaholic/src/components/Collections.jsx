@@ -7,6 +7,8 @@ import {
     Link
 } from 'react-router-dom'
 
+const baseURL = 'http://localhost:8000/api/v1/watchlist/'
+
 export default class Collections extends Component {
     constructor(props) {
         super(props)
@@ -20,7 +22,7 @@ export default class Collections extends Component {
     getAllwatchlists = async () => {
         try {
             //go get the watchlist
-            const response = await axios.get('http://localhost:8000/api/v1/watchlist/')
+            const response = await axios.get(baseURL)
             console.log(response.data.data)
             //set it to allwatchlist state
             this.setState({ allWatchlist: response.data.data })
@@ -37,10 +39,12 @@ export default class Collections extends Component {
             <div>
                 {this.state.allWatchlist.map(watchlist => {
                     return (
-                        <div>
-                            <a href='/watchlist/<id>'><h1>{watchlist.title}</h1></a>
-                            <a href='/watchlist/<id>'><h4>{watchlist.authour}</h4></a>
+                        <a href={`/watchlist/${watchlist.watchlist_id}`}>
+                        <div class='watchlists'>
+                            <h1>{watchlist.title}</h1>
+                            <h4>{watchlist.authour}</h4>
                         </div>
+                        </a>
                     )
                 })
                 }
