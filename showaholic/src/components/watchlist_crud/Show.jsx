@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link,Redirect } from 'react-router-dom'
+
+const baseURL = `http://localhost:8000/api/v1/watchlist/`
+
 export default class Show extends Component {
     constructor(props) {
         super(props)
@@ -17,7 +20,7 @@ export default class Show extends Component {
             const id = this.props.match.params.id
             console.log(id)
             //go get the watchlist
-            const response = await axios.get(`http://localhost:8000/api/v1/watchlist/${id}`)
+            const response = await axios.get(baseURL + id)
             console.log(response.data.data)
             //set it to allwatchlist state
             this.setState({ watchlist: response.data.data })
@@ -28,7 +31,8 @@ export default class Show extends Component {
     }
     deleteShow = async (e) => {
         const id = this.props.match.params.id
-        await axios.delete(`http://localhost:8000/api/v1/watchlist/${id}`).then(this.setState({ redirectBack: true }))
+        await axios.delete(baseURL + id)
+        .then(this.setState({ redirectBack: true }))
         this.setState({ redirectToWalkthrough: true })
     }
     render() {
@@ -37,8 +41,10 @@ export default class Show extends Component {
         }
         return (
             <div>
-                {this.state.watchlist.authour}<Link to={`./${this.props.match.params.id}/edit`}>Edit</Link><button onClick={(e) => this.deleteShow(e)}>Delete</button>
-
+                <h1>{this.state.watchlist.title}</h1>
+                <h3>{this.state.watchlist.authour}</h3>
+                <Link to={`./${this.props.match.params.id}/edit`}><button>Edit</button></Link>
+                <button onClick={(e) => this.deleteShow(e)}>Delete</button>
             </div>
         )
     }

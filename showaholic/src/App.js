@@ -8,11 +8,11 @@ import {
 
 import './skeleton.css'
 import './App.css'
-import WatchCreate from './components/Create'
-import WatchShow from './components/Show'
+import WatchCreate from './components/watchlist_crud/Create'
+import WatchShow from './components/watchlist_crud/Show'
 import Collections from './components/Collections'
 import Home from './components/Home.jsx'
-import WatchEdit from './components/Edit'
+import WatchEdit from './components/watchlist_crud/Edit'
 import Login from './components/Login.jsx'
 
 export default class App extends Component {

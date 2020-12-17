@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+
 const baseURL = 'http://localhost:8000/api/v1/watchlist/'
 
 export default class Create extends Component {
@@ -15,16 +16,19 @@ export default class Create extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+
     componentDidMount() {
         this.defaultState()
     }
-    defaultState = () => {
+
+    defaultState() {
         this.setState({
             tite: "",
             authour: "",
             redirectBack: false
         })
     }
+
     handleChange(event) {
         this.setState({
             [event.target.id]: event.target.value
@@ -38,7 +42,6 @@ export default class Create extends Component {
             authour: this.state.authour
         }
         await axios.post(baseURL, packageCreate).then(
-            //do a redirect back to the main page here
             this.setState({ redirectBack: true })
         )
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+
 const baseURL = 'http://localhost:8000/api/v1/watchlist/'
 
 export default class Edit extends Component {
@@ -33,7 +34,6 @@ export default class Edit extends Component {
         } catch (err) {
             console.log(err)
         }
-
     }
 
     handleChange(event) {
