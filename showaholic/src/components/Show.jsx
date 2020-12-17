@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link,Redirect } from 'react-router-dom'
 export default class Show extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            watchlist: {}
+            watchlist: {},
+            redirectBack: false
         }
     }
     componentDidMount() {
@@ -25,10 +26,18 @@ export default class Show extends Component {
         }
 
     }
+    deleteShow = async (e) => {
+        const id = this.props.match.params.id
+        await axios.delete(`http://localhost:8000/api/v1/watchlist/${id}`).then(this.setState({ redirectBack: true }))
+        this.setState({ redirectToWalkthrough: true })
+    }
     render() {
+        if (this.state.redirectBack) {
+            return <Redirect to={`../`} />
+        }
         return (
             <div>
-                {this.state.watchlist.authour}<Link to={`./${this.props.match.params.id}/edit`}>Edit</Link>
+                {this.state.watchlist.authour}<Link to={`./${this.props.match.params.id}/edit`}>Edit</Link><button onClick={(e) => this.deleteShow(e)}>Delete</button>
 
             </div>
         )
