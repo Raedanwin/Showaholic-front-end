@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 export default class Show extends Component {
     constructor(props) {
         super(props)
@@ -28,7 +28,7 @@ export default class Show extends Component {
     render() {
         return (
             <div>
-                {this.state.watchlist.authour}
+                {this.state.watchlist.authour}<Link to={`./${this.props.match.params.id}/edit`}>Edit</Link>
 
             </div>
         )
