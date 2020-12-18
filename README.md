@@ -1,9 +1,9 @@
 # Showaholic-front-end
 
-Technologies used: </br>
+Technologies used: </hr>
   I used React and Skeleton for my front end and Flask and PostSQL for my backend.
   
-Link to live site: </br>
+Link to live site: </hr>
   I couldn't deploy it to heroku so no link.
 
 Unsolved problems: </br>
