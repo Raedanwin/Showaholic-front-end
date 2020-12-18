@@ -51,7 +51,7 @@ export default class Create extends Component {
         })
     }
 
-    handleSubmit(event) {
+    handleSubmit=async (event) =>{
         event.preventDefault()
         const packageCreate = {
             title: this.state.title,
@@ -66,8 +66,7 @@ export default class Create extends Component {
             this.setState({ redirectBack: true })
         )
     }
-
-
+    
     render() {
         return(
             <div>
@@ -89,6 +88,6 @@ export default class Create extends Component {
                     <input type='submit' value='Submit'/>
                 </form>
             </div>
-        ) 
+        )
     }
 }

@@ -25,7 +25,7 @@ export default class Show extends Component {
 
     getOneShow = async () => {
         try {
-            const id = this.props.match.params.id
+            const id = this.props.match.params.showId
             const response = await axios.get(baseURL + id)
             this.setState({
                 shows: response.data.data
@@ -49,7 +49,13 @@ export default class Show extends Component {
     render() {
         return(
             <div>
+                <img src={this.state.shows.cover} />
                 <h1>{this.state.shows.title}</h1>
+                <h3>{this.state.shows.where_to_watch}</h3>
+                <h4>{this.state.shows.genre}</h4>
+                <h4>{this.state.shows.release_date}</h4>
+                <h4>{this.state.shows.runtime}</h4>
+                <p>{this.state.shows.synopsis}</p>
             </div>
         )
     }

@@ -14,7 +14,7 @@ export default class Edit extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            shows = {},
+            shows: {},
             title: "",
             where_to_watch: "",
             genre: "",
@@ -24,7 +24,7 @@ export default class Edit extends Component {
             synopsis: "",
             redirectBack: false
         }
-
+        
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -57,7 +57,7 @@ export default class Edit extends Component {
         })
     }
 
-    handleSubmit(event) {
+    handleSubmit=async(event)=> {
         event.preventDefault()
         const id = this.props.match.params.id
         const packageUpdate = {
@@ -74,7 +74,7 @@ export default class Edit extends Component {
             redirectBack: true
         }))
     }
-
+    
     render() {
         return(
             <div>
@@ -98,5 +98,4 @@ export default class Edit extends Component {
             </div>
         )
     }
-
 }

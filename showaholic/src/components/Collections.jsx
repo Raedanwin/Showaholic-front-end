@@ -41,7 +41,7 @@ export default class Collections extends Component {
                         <a href={`/watchlist/${watchlist.watchlist_id}`}>
                         <div class='watchlists'>
                             <h1>{watchlist.title}</h1>
-                            <h4>{watchlist.authour}</h4>
+                            <h4>Made by: {watchlist.authour}</h4>
                         </div>
                         </a>
                     )}
