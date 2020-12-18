@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import axios from "axios";
-
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect
+} from 'react-router-dom'
+import Collapsible from 'react-collapsible';
 
 
 export default class Search extends Component {
@@ -46,13 +52,20 @@ export default class Search extends Component {
     render() {
         return (
             <div>
- 
                 <input onChange={this.handleChange} id='search' type='text' />
-                <button onClick={this.getSearch}>Search</button>
+                <button onClick={this.getSearch}>Search</button><br/>
+                <Link to={`/`}><button>Back</button></Link>
                 {this.state.allResults.map(result => {
                     return (
                         <div>
-                            {result.title}
+                                <Collapsible trigger={result.title}>
+                                    <ul id='coll'>
+                                        <li><img src={result.imageurl}/></li>
+                                        <li><p>Genre(s): {result.genre}</p></li>
+                                        <li><p>Released in: {result.released}</p></li>
+                                        <li><p>Synopsis: {result.synopsis}</p></li>
+                                    </ul>
+                                </Collapsible>
                         </div>
                     )
                 })}

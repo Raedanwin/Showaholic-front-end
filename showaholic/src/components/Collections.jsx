@@ -30,22 +30,25 @@ export default class Collections extends Component {
         } catch (err) {
             console.log(err)
         }
-
     }
 
     render() {
         return (
-            <div>
+            <div id='create-main'>
+                <h1 id='coll-head'>Your Watchlists</h1>
+                <div id='create-sub'>
                 {this.state.allWatchlist.map(watchlist => {
                     return (
                         <a href={`/watchlist/${watchlist.watchlist_id}`}>
                         <div class='watchlists'>
-                            <h1>{watchlist.title}</h1>
-                            <h4>Made by: {watchlist.authour}</h4>
+                            <h1 class='list-title'>{watchlist.title}</h1>
+                            <h4 class='list-title'>Made by: {watchlist.authour}</h4>
                         </div>
                         </a>
                     )}
                 )}
+                </div>
+                <Link to='/watchlist/create'><button id='create-list'>Create new watchlist</button></Link>
             </div>
         )
     }

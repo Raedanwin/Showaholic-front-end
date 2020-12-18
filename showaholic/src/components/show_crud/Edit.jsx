@@ -35,7 +35,7 @@ export default class Edit extends Component {
 
     getShows = async () => {
         try {
-            const id = this.props.match.params.id
+            const id = this.props.match.params.showId
             const response = await axios.get(baseURL + id)
             this.setState({
                 title: response.data.data.title,
@@ -59,7 +59,7 @@ export default class Edit extends Component {
 
     handleSubmit=async(event)=> {
         event.preventDefault()
-        const id = this.props.match.params.id
+        const id = this.props.match.params.showId
         const packageUpdate = {
             title: this.state.title,
             where_to_watch: this.state.where_to_watch,
@@ -76,6 +76,9 @@ export default class Edit extends Component {
     }
     
     render() {
+        if (this.state.redirectBack) {
+            return <Redirect to={`../${this.props.match.params.showId}`} />
+        }
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -92,7 +95,8 @@ export default class Edit extends Component {
                     <label htmlFor='runtime'>Runtime</label>
                     <input onChange={this.handleChange} id='runtime' type='text' value={this.state.runtime} />
                     <label htmlFor='summary'>Summary</label>
-                    <input onChange={this.handleChange} id='summary' type='text' value={this.state.synopsis} />
+                    <textarea onChange={this.handleChange} id='summary' value={this.state.synopsis} />
+                    <br/>
                     <input type='submit' value='Submit'/>
                 </form>
             </div>

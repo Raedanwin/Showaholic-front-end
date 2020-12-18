@@ -17,8 +17,8 @@ export default class Home extends Component {
     render() {
         return(
             <div>
-                <a href='/collections'><h1>Collections</h1></a>
-                <a href='/search'><h1>Search for something</h1></a>
+                <Link to={`/collections`}><button class='homeP'>Collections</button></Link>
+                <Link to={`/search`}><button class='homeP'>Search for something</button></Link>
             </div>
         )
     }

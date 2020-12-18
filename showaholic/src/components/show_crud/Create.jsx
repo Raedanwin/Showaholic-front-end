@@ -46,7 +46,7 @@ export default class Create extends Component {
     }
 
     handleChange(event) {
-        this.state({
+        this.setState({
             [event.target.id]: event.target.value
         })
     }
@@ -68,6 +68,9 @@ export default class Create extends Component {
     }
     
     render() {
+        if (this.state.redirectBack) {
+            return <Redirect to={`../`} />
+        }
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>

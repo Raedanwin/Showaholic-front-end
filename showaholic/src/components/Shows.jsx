@@ -55,6 +55,7 @@ export default class Shows extends Component {
                         </a>
                     )
                 })}
+                <Link to={'./create'}><button>Create new show</button></Link>
             </div>
         )
     }

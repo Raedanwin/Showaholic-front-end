@@ -36,7 +36,7 @@ export default class Show extends Component {
     }
 
     deleteShow = async (e) => {
-        const id = this.props.match.params.id
+        const id = this.props.match.params.showId
         await axios.delete(baseURL + id)
         .then(this.setState({
             redirectBack: true
@@ -56,6 +56,8 @@ export default class Show extends Component {
                 <h4>{this.state.shows.release_date}</h4>
                 <h4>{this.state.shows.runtime}</h4>
                 <p>{this.state.shows.synopsis}</p>
+                <Link to={`./${this.props.match.params.showId}/edit`}><button>Edit</button></Link>
+                <button onClick={(e) => this.deleteShow(e)}>Delete</button>
             </div>
         )
     }

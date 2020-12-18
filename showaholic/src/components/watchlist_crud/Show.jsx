@@ -49,10 +49,11 @@ export default class Show extends Component {
         return (
             <div>
                 <h1>{this.state.watchlist.title}</h1>
-                <h3>{this.state.watchlist.authour}</h3>
+                <h3>Made by: {this.state.watchlist.authour}</h3>
                 <Link to={`./${this.props.match.params.id}/edit`}><button>Edit</button></Link>
                 <button onClick={(e) => this.deleteList(e)}>Delete</button>
                 <Link to={`./${this.props.match.params.id}/show/`}><button>Shows</button></Link>
+                <Link to={'/collections'}><button>Back</button></Link>
             </div>
         )
     }

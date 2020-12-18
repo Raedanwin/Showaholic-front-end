@@ -17,3 +17,36 @@ a {
     text-decoration: none;
     color: white;
 }
+
+.homeP {
+    display: block;
+    padding: 0px;
+    width: 100vw;
+    height: 50vh;
+    font-size: 70px;
+}
+
+.watchlists {
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    border: 3px solid white;
+}
+
+#coll-head {
+    border-bottom: 1px solid white;
+    font-style: italic;
+}
+
+#create-list {
+    position: relative;
+    margin-top: 15%;
+}
+
+#coll {
+    border: 1px solid white;
+}
+
+li {
+    list-style: none;
+}
