@@ -4,7 +4,7 @@ Technologies used: </br>
   I used React and Skeleton for my front end and Flask and PostSQL for my backend.
   
 Link to live site: </br>
-  I couldn't deploy it to heroku so no link.
+  I couldn't deploy it to heroku so no link, but will try to get it deployed soon.
 
 Unsolved problems: </br>
   1. Some routes by still be tangled, I think I sorted them all out but there could still be some that don't go to the right spot. </br>
